@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">SearchFilms</string>
     <string name="start">Старт</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_home">Фильмы</string>
+    <string name="title_favorites">Избранное</string>
+    <string name="title_notifications">Уведомления</string>
+    <string name="popular_films">Популярные</string>
+    <string name="new_films">Новинки</string>
 </resources>
