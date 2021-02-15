@@ -1,4 +1,4 @@
-package com.example.searchfilms.fragments.popular
+package com.example.searchfilms.fragments.newFilms
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,9 +15,9 @@ import com.example.searchfilms.adapters.RecyclerAdapterFilms
 import com.example.searchfilms.fragments.detailsFilm.FragmentDetailsFilms
 import com.example.searchfilms.models.OnItemViewClickListener
 
-class FragmentPopular: Fragment() {
+class FragmentNewFilms: Fragment() {
 
-    private lateinit var viewModel: ViewModelPopular
+    private lateinit var viewModel: ViewModelNewFilms
     private val adapter = RecyclerAdapterFilms(object : OnItemViewClickListener {
         override fun onItemViewClick(film: Film) {
             val manager = activity?.supportFragmentManager
@@ -31,17 +31,14 @@ class FragmentPopular: Fragment() {
             }
         }
     })
-
     private lateinit var recyclerView: RecyclerView
-
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val root= inflater.inflate(R.layout.fragment_popular_name, container, false)
-        recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_popular)
-
+        val root= inflater.inflate(R.layout.fragment_new_films, container, false)
+        recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_new)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
         recyclerView.adapter = adapter
 
@@ -50,21 +47,13 @@ class FragmentPopular: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ViewModelPopular::class.java)
+        viewModel = ViewModelProvider(this).get(ViewModelNewFilms::class.java)
 
         val observer = Observer<MutableList<Film>> { renderData(it) }
         viewModel.getData().observe(viewLifecycleOwner, observer)
     }
 
     private fun renderData(data: MutableList<Film>) {
-
         adapter.setFilms(data)
-
     }
-
-
-
-
-
 }
-

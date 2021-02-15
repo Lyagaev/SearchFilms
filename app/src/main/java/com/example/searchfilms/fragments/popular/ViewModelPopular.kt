@@ -3,7 +3,7 @@ package com.example.searchfilms.fragments.popular
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.searchfilms.Film
+import com.example.searchfilms.models.Film
 
 class ViewModelPopular (private val liveDataToObserve: MutableLiveData<MutableList<Film>> =
                                    MutableLiveData()): ViewModel() {
