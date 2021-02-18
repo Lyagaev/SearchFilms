@@ -3,13 +3,15 @@ package com.example.searchfilms.fragments.newFilms
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.searchfilms.models.AppState
 import com.example.searchfilms.models.Film
 
-class ViewModelNewFilms (private val liveDataToObserve: MutableLiveData<MutableList<Film>> =
+class ViewModelNewFilms (private val liveDataToObserve: MutableLiveData<AppState> =
                                    MutableLiveData()): ViewModel() {
 
+    fun getGenerateDataFromLocalSource() = generateDataFromLocalSource()
 
-    fun getData(): LiveData<MutableList<Film>> {
+    fun getData(): LiveData<AppState> {
         generateDataFromLocalSource()
         return liveDataToObserve
     }
@@ -20,9 +22,8 @@ class ViewModelNewFilms (private val liveDataToObserve: MutableLiveData<MutableL
             myList.add(Film("Боевик 1", 5.0))
             myList.add(Film("Комедия 2", 6.0))
             myList.add(Film("Драма 3", 7.0))
-            liveDataToObserve.postValue(myList)
+            liveDataToObserve.postValue(AppState.Success(myList))
         }.start()
     }
-
 
 }

@@ -20,10 +20,8 @@ class FragmentCategories: Fragment() {
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
         val root = inflater.inflate(R.layout.fragment_categories_films, container, false)
         recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_categories)
-
         return root
     }
 

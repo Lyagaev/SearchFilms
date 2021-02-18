@@ -2,6 +2,8 @@
     <string name="app_name">SearchFilms</string>
     <string name="start">Старт</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="error">Ошибка</string>
+    <string name="reload">Обновить</string>
 
     <string name="title_home">Фильмы</string>
     <string name="title_favorites">Избранное</string>
