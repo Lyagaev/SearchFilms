@@ -24,10 +24,8 @@ class RecyclerAdapterCategories (private val values: MutableList<String>) :
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textViewCategories: TextView? = null
 
-
         init {
             textViewCategories = itemView?.findViewById(R.id.text_view_categories)
-            //smallTextView = itemView?.findViewById(R.id.textViewSmall)
         }
     }
 }

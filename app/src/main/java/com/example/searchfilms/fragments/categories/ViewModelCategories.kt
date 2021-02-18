@@ -22,5 +22,4 @@ class ViewModelCategories (private val liveDataToObserve: MutableLiveData<Mutabl
         }.start()
     }
 
-
 }

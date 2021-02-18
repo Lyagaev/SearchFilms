@@ -24,7 +24,6 @@ class FragmentDetailsFilms: Fragment() {
 
         val film = arguments?.getParcelable<Film>(BUNDLE_EXTRA)
         film?.let {
-
             tvDetailsHeader.text = it.name
             tvDetailsDescription.text ="Описание фильма"
         }
