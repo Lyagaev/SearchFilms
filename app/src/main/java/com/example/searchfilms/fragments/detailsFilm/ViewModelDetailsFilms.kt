@@ -16,7 +16,7 @@ class ViewModelDetailsFilms (private val liveDataToObserve: MutableLiveData<Film
 
     private fun generateDataFromLocalSource() {
         Thread {
-            liveDataToObserve.postValue(Film("Боевик 1", 5.0))
+            liveDataToObserve.postValue(Film("Боевик 1", 5.0,""))
         }.start()
     }
 

@@ -17,7 +17,6 @@ import com.example.searchfilms.models.AppState
 import com.example.searchfilms.models.OnItemViewClickListener
 import com.example.searchfilms.models.showSnackBar
 import kotlinx.android.synthetic.main.fragment_new_films.*
-import kotlinx.android.synthetic.main.fragment_popular_films.*
 
 class FragmentNewFilms: Fragment() {
 
@@ -53,14 +52,15 @@ class FragmentNewFilms: Fragment() {
         viewModel = ViewModelProvider(this).get(ViewModelNewFilms::class.java)
 
         val observer = Observer<AppState> { renderData(it) }
-        viewModel.getData().observe(viewLifecycleOwner, observer)
+        viewModel.getNewMovieLiveData().observe(viewLifecycleOwner, observer)
+        viewModel.getNewMovieFromRemoteSource()
     }
 
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
                 loadingFragmentNewFilm.visibility = View.GONE
-                adapter.setFilms(appState.filmData)
+                adapter.setFilms(appState.filmData.Movie)
             }
             is AppState.Loading -> {
                 loadingFragmentNewFilm.visibility = View.VISIBLE
@@ -71,7 +71,7 @@ class FragmentNewFilms: Fragment() {
                     requireView().showSnackBar(
                             getString(R.string.error),
                             getString(R.string.reload),
-                            { viewModel.getGenerateDataFromLocalSource() })
+                            { viewModel.getNewMovieLiveData() })
                 }
             }
         }
