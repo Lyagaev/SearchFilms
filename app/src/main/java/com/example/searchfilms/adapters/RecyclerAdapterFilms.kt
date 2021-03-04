@@ -52,7 +52,7 @@ class RecyclerAdapterFilms(private var onItemViewClickListener: OnItemViewClickL
                 text_view_popular_rate.text = film.rate.toString()
                 Picasso
                         .get()
-                        .load(BASE_URL_IMAGE+film.posterPath)
+                        .load(BASE_URL_IMAGE+ "w200/"+ film.posterPath)
                         .into(image_popular);
 
                 setOnClickListener {

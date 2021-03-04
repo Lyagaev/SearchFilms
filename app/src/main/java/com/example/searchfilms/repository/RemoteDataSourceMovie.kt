@@ -36,7 +36,7 @@ class RemoteDataSourceMovie {
                 sortBy,
                 includeAdult,
                 include_video,
-                page,
+                page
                 ).enqueue(callback)
     }
 }

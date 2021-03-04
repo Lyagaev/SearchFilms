@@ -14,7 +14,8 @@ class DetailsRepositoryImpl(private val remoteDataSource: RemoteDataSourceMovie)
                                            sortBy:String,
                                            includeAdult: Boolean,
                                            include_video: Boolean,
-                                           page: Int) {
+                                           page: Int
+    ) {
         remoteDataSource.getNewMovieList(callback,
                 sortBy,
                 includeAdult,
