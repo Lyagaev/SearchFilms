@@ -41,7 +41,7 @@ class FragmentNewFilms: Fragment() {
                               savedInstanceState: Bundle?): View? {
         val root= inflater.inflate(R.layout.fragment_new_films, container, false)
         recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_new)
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
         recyclerView.adapter = adapter
 
         return root;
