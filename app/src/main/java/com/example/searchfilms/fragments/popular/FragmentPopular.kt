@@ -48,7 +48,7 @@ class FragmentPopular: Fragment() {
         val root= inflater.inflate(R.layout.fragment_popular_films, container, false)
         recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_popular)
 
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
         recyclerView.adapter = adapter
 
         return root;

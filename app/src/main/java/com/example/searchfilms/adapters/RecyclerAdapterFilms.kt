@@ -49,6 +49,7 @@ class RecyclerAdapterFilms(private var onItemViewClickListener: OnItemViewClickL
         fun bind(film: Film) {
             itemView.apply {
                 textView_popular_name.text = film.name
+                textView_popular_description.text = film.description
                 text_view_popular_rate.text = film.rate.toString()
                 Picasso
                         .get()
