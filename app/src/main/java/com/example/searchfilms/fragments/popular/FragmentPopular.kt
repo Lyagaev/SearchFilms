@@ -59,14 +59,15 @@ class FragmentPopular: Fragment() {
         viewModel = ViewModelProvider(this).get(ViewModelPopular::class.java)
 
         val observer = Observer<AppState> { renderData(it) }
-        viewModel.getData().observe(viewLifecycleOwner, observer)
+        viewModel.getPopularLiveData().observe(viewLifecycleOwner, observer)
+        viewModel.getPopularFromRemoteSource()
     }
 
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
                 loadingFragmentPopular.visibility = View.GONE
-                adapter.setFilms(appState.filmData)
+                adapter.setFilms(appState.filmData.Movie)
             }
             is AppState.Loading -> {
                 loadingFragmentPopular.visibility = View.VISIBLE
@@ -77,7 +78,7 @@ class FragmentPopular: Fragment() {
                     requireView().showSnackBar(
                             getString(R.string.error),
                             getString(R.string.reload),
-                            { viewModel.getGenerateDataFromLocalSource() })
+                            { viewModel.getPopularLiveData() })
                 }
             }
         }

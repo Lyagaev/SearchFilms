@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.searchfilms.models.Film
 import com.example.searchfilms.R
+import com.example.searchfilms.models.BASE_URL_IMAGE
 import com.example.searchfilms.models.OnItemViewClickListener
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyclerview_popular_item.view.*
 
 class RecyclerAdapterFilms(private var onItemViewClickListener: OnItemViewClickListener?) :
@@ -48,6 +50,11 @@ class RecyclerAdapterFilms(private var onItemViewClickListener: OnItemViewClickL
             itemView.apply {
                 textView_popular_name.text = film.name
                 text_view_popular_rate.text = film.rate.toString()
+                Picasso
+                        .get()
+                        .load(BASE_URL_IMAGE+ "w200/"+ film.posterPath)
+                        .into(image_popular);
+
                 setOnClickListener {
                     onItemViewClickListener?.onItemViewClick(film)
                 }
