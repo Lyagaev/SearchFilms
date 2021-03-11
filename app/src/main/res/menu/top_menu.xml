@@ -7,6 +7,11 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/Settings" />
+    <item
+        android:id="@+id/menu_google_maps"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="@string/GoogleMap"
+        app:showAsAction="always" />
 
 
 </menu>

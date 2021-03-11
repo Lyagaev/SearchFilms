@@ -16,4 +16,8 @@
     <string name="NoNote">Нет заметки</string>
     <string name="InputNote">Введите заметку</string>
     <string name="Save">Сохранить</string>
+    <string name="GoogleMap">Карта</string>
+
+    <string name="default_address">Red Square, 1, Moscow</string>
+    <string name="button_search_map">Поиск</string>
 </resources>
